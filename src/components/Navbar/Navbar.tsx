@@ -15,14 +15,18 @@ const Navbar = (props: React.PropsWithChildren<Props>): JSX.Element => {
 			<div>
 				<Link
 					className="text-2xl whitespace-nowrap text-gray-800"
-					to="#"
+					to={props.title.link}
 				>
 					{props.title.text}
 				</Link>
 			</div>
 			<nav className="space-x-2 text-base">
 				{props.links.map((link) => {
-					return <Link key={link.text}>{link.text}</Link>;
+					return (
+						<Link key={link.text} to={link.link}>
+							{link.text}
+						</Link>
+					);
 				})}
 			</nav>
 		</header>

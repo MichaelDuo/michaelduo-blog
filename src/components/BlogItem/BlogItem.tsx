@@ -12,7 +12,7 @@ const BlogItem = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	return (
 		<section>
 			<Header>
-				<Link>{props.title}</Link>
+				<Link to="/test">{props.title}</Link>
 			</Header>
 			<div className="text-gray-500">Oct 21, 2021</div>
 			<div>This is a description...f ewjio jfeio jdjs iofdjsio</div>

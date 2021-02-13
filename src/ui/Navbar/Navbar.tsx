@@ -6,12 +6,12 @@ const Navbar = (): JSX.Element => {
 		<Nb
 			title={{
 				text: 'Yuxi Dong',
-				link: '#',
+				link: '/',
 			}}
 			links={[
 				{
 					text: 'Home',
-					link: '#',
+					link: '/',
 				},
 				{
 					text: 'All Posts',
