@@ -1,0 +1,26 @@
+.h1,
+.h2,
+.h3 {
+	@apply text-lg font-medium text-gray-900 mt-10 mb-3;
+	&::before {
+		@apply text-indigo-700;
+	}
+}
+
+.h1 {
+	&::before {
+		content: '# ';
+	}
+}
+
+.h2 {
+	&::before {
+		content: '## ';
+	}
+}
+
+.h3 {
+	&::before {
+		content: '### ';
+	}
+}
