@@ -5,7 +5,13 @@ const IndexPage = () => {
 	return (
 		<main className="flex justify-center items-center h-screen">
 			<div>
-				<Button>Customized Button</Button>
+				<Button
+					onClick={() => {
+						console.log('HelloWorld');
+					}}
+				>
+					Customized Button
+				</Button>
 			</div>
 		</main>
 	);
