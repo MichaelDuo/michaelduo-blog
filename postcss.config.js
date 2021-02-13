@@ -4,7 +4,7 @@ module.exports = () => ({
 	plugins: [
 		require('tailwindcss'),
 		postcssPresetEnv({
-			stage: 0,
+			stage: 2,
 		}),
 	],
 });

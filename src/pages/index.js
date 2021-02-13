@@ -1,11 +1,12 @@
 import * as React from 'react';
-import getName from './test';
+import Button from '../components/Button';
 
 const IndexPage = () => {
 	return (
-		<main>
-			<a href="#">HelloWorld a Tag {getName()}</a>
-			{/* HelloWorld */}
+		<main className="flex justify-center items-center h-screen">
+			<div>
+				<Button>Customized Button</Button>
+			</div>
 		</main>
 	);
 };
