@@ -11,7 +11,7 @@ interface Props {
 const BlogItem = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	return (
 		<section>
-			<Header>
+			<Header type="h2">
 				<Link to="/test">{props.title}</Link>
 			</Header>
 			<div className="text-gray-500">Oct 21, 2021</div>
