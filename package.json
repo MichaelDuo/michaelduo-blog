@@ -17,12 +17,16 @@
   "dependencies": {
     "gatsby": "^2.32.3",
     "gatsby-plugin-postcss": "^3.7.0",
+    "lodash": "^4.17.20",
     "postcss": "^8.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-syntax-highlighter": "^15.4.3",
     "sass": "^1.32.7"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.168",
+    "@types/react-syntax-highlighter": "^13.5.0",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "eslint": "^7.20.0",

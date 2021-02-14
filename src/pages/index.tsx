@@ -10,7 +10,6 @@ interface Props {
 
 const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	const edges = props.data.allMarkdownRemark.edges;
-	console.log(props.data);
 	return (
 		<Layout>
 			<SiteDescription />
