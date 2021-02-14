@@ -3,7 +3,7 @@ import Link from '../../components/Link';
 
 const Footer = (): JSX.Element => {
 	return (
-		<footer className="my-8 py-2 border-t-2">
+		<footer className="mt-8 pt-2 pb-16 border-t-2">
 			2021 © Yuxi Dong |{' '}
 			<Link to="https://github.com/MichaelDuo/gatsby-boilerplate">
 				Source Code

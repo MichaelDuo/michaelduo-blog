@@ -4,18 +4,19 @@ import Link from '../Link';
 
 interface Props {
 	title: string;
-	brief?: string;
-	timestamp?: Date;
+	excerpt?: string;
+	date?: string;
+	path: string;
 }
 
 const BlogItem = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	return (
 		<section>
 			<Header type="h2">
-				<Link to="/test">{props.title}</Link>
+				<Link to={props.path}>{props.title}</Link>
 			</Header>
-			<div className="text-gray-500">Oct 21, 2021</div>
-			<div>This is a description...f ewjio jfeio jdjs iofdjsio</div>
+			<div className="text-gray-500">{props.date}</div>
+			<div>{props.excerpt}</div>
 		</section>
 	);
 };
