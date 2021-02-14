@@ -15,3 +15,16 @@ body {
 .border-b-3 {
 	border-bottom-width: 3px;
 }
+
+ol,
+ul {
+	@apply pl-4;
+}
+
+ul {
+	list-style-type: '* ';
+}
+
+ol {
+	list-style-type: decimal;
+}

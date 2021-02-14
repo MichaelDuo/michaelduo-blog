@@ -15,11 +15,11 @@ const Navbar = (): JSX.Element => {
 				},
 				{
 					text: 'All Posts',
-					link: '#',
+					link: '/posts',
 				},
 				{
 					text: 'About',
-					link: '#',
+					link: '/about',
 				},
 				{
 					text: 'Tags',
