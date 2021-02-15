@@ -1,9 +1,6 @@
 import * as React from 'react';
-import BlogItem from '../components/BlogItem';
 import Layout from '../ui/Layout';
 import {graphql} from 'gatsby';
-import _ from 'lodash';
-import {getTags} from '../utils';
 import Header from '../components/Header';
 import Link from '../components/Link';
 
@@ -12,10 +9,7 @@ interface Props {
 }
 
 const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
-	let blogs = props.data.allMarkdownRemark.edges.map((e) => e.node);
-	blogs = blogs.filter(
-		(blog) => _.indexOf(getTags(blog.frontmatter.tags), 'featured') >= 0
-	);
+	const blogs = props.data.allMarkdownRemark.edges.map((e) => e.node);
 
 	return (
 		<Layout>
@@ -31,15 +25,6 @@ const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
 								{blog.frontmatter.date}
 							</li>
 						);
-						return (
-							<BlogItem
-								key={blog.id}
-								title={blog.frontmatter.title}
-								date={blog.frontmatter.date}
-								path={blog.frontmatter.path}
-								excerpt={blog.excerpt}
-							></BlogItem>
-						);
 					})}
 				</ul>
 			</section>
@@ -48,8 +33,11 @@ const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
 };
 
 export const pageQuery = graphql`
-	query AboutQuery {
-		allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
+	query AllTagsQuery {
+		allMarkdownRemark(
+			sort: {order: DESC, fields: [frontmatter___date]}
+			filter: {frontmatter: {path: {regex: "/^/blogs.*/"}}}
+		) {
 			edges {
 				node {
 					excerpt(pruneLength: 250)

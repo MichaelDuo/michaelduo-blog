@@ -19,15 +19,15 @@ const Navbar = (): JSX.Element => {
 				},
 				{
 					text: 'About',
-					link: '/about',
+					link: '/about/yuxi-dong',
 				},
 				{
 					text: 'Tags',
-					link: '#',
+					link: '/tags',
 				},
 				{
 					text: 'Github',
-					link: '#',
+					link: 'https://github.com/MichaelDuo',
 				},
 			]}
 		></Nb>

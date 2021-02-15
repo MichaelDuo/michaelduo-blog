@@ -21,10 +21,13 @@ ul {
 	@apply pl-4;
 }
 
-ul {
-	list-style-type: '* ';
-}
-
 ol {
 	list-style-type: decimal;
+}
+
+ul li {
+	&::before {
+		content: '* ';
+	}
+	text-indent: -1rem;
 }

@@ -1,5 +1,5 @@
 ---
-path: /about
+path: /about/yuxi-dong
 date: 2019-05-20
 title: About Me
 tags: test,frontend

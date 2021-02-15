@@ -124,8 +124,11 @@
 	margin: 0;
 }
 
-.markdown-body ul {
-	list-style-type: '* ';
+.markdown-body ul li {
+	&::before {
+		content: '* ';
+	}
+	text-indent: -1rem;
 }
 
 .markdown-body ol {
