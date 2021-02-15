@@ -17,10 +17,31 @@ interface Props {
 
 const Blog = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	const {markdownRemark: post} = props.data;
+	const titleAst = _.get(post.htmlAst, 'children.0');
+	const htmlAst = {...post.htmlAst};
+	if (
+		post.frontmatter.date &&
+		titleAst &&
+		['h1', 'h2'].includes(titleAst.tagName)
+	) {
+		htmlAst.children = [...htmlAst.children];
+		htmlAst.children.splice(1, 0, {
+			type: 'element',
+			properties: {className: 'post-date'},
+			tagName: 'p',
+			children: [
+				{
+					type: 'text',
+					value: `Posted on ${post.frontmatter.date}`,
+				},
+			],
+		});
+	}
+
 	return (
 		<Layout>
 			<div className="markdown-body">
-				<MDHtml ast={post.htmlAst} />
+				<MDHtml ast={htmlAst} />
 			</div>
 		</Layout>
 	);
@@ -107,7 +128,7 @@ const MDHtml = (props: React.PropsWithChildren<{ast: HtmlAst}>) => {
 		return (
 			// eslint-disable-next-line
 			// @ts-ignore
-			<ast.tagName>{children}</ast.tagName>
+			<ast.tagName {...ast.properties}>{children}</ast.tagName>
 		);
 	}
 };

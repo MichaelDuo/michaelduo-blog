@@ -11,7 +11,7 @@ interface Props {
 
 const Navbar = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	return (
-		<header className="flex justify-between items-center flex-wrap">
+		<header className="flex justify-between items-center flex-wrap mb-5">
 			<div>
 				<Link
 					className="text-2xl whitespace-nowrap text-gray-800"

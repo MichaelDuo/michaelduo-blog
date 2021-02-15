@@ -2,7 +2,7 @@ import React from 'react';
 
 const SiteDescription = (): JSX.Element => {
 	return (
-		<div className="mb-5">Fullstack Software Developer, San Fransisco</div>
+		<div className="my-5">Fullstack Software Developer, San Fransisco</div>
 	);
 };
 

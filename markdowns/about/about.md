@@ -39,6 +39,8 @@ _Frontend Team Lead, Full-Stack Developer_
 -   **Performance Monitoring:** Integrate monitoring platform like newRelic.
 -   **Search Engine Optimization(SEO):** Server side Rendering, Google AMP.
 
+---
+
 **XMind - Most popular mind mapping software** (June 2017 - Nov 2018)  
 _Full-Stack Engineer_
 
@@ -48,6 +50,8 @@ _Full-Stack Engineer_
 -   **Hand Gesture Recognizing Algorithm:** Research on hand gesture recognizing algorithm to identify user’s input and transform to mindmap.
 -   **iOS Development:** Developed a reading application for iOS.
 
+---
+
 **MUAssign - Auto grading system** (May 2016 - June 2017)  
 _Founder, CEO_
 
@@ -56,6 +60,8 @@ _Founder, CEO_
 -   **Product Management:** Product Management and user interface design
 -   **Team Management:** Manage a team of 4 engineers
 -   **Communication:** Financing from investors. Communicating with our customers, two major universities in China(Sichuan University and Shenzhen University), were using MUAssign as their assignment and quiz system
+
+---
 
 **IBM** (May 2014 - Aug 2014)  
 _Software developer internship_
