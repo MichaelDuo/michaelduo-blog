@@ -11,7 +11,7 @@ interface Props {
 
 const Navbar = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	return (
-		<header className="flex justify-between items-center flex-wrap mb-5">
+		<header className="flex sm:flex-row flex-col sm:items-center items-start justify-between flex-wrap mb-5">
 			<div>
 				<Link
 					className="text-2xl whitespace-nowrap text-gray-800"
@@ -20,7 +20,7 @@ const Navbar = (props: React.PropsWithChildren<Props>): JSX.Element => {
 					{props.title.text}
 				</Link>
 			</div>
-			<nav className="space-x-2 text-base">
+			<nav className="space-x-2 text-base pt-2 sm:pt-0">
 				{props.links.map((link) => {
 					return (
 						<Link key={link.text} to={link.link}>
