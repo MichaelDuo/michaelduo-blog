@@ -19,6 +19,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 				edges {
 					node {
 						frontmatter {
+							type
 							date
 							path
 							tags
@@ -46,7 +47,10 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 		const blog = blogs[i];
 		createPage({
 			path: blog.frontmatter.path,
-			component: blogPostTemplate,
+			component:
+				blog.frontmatter.type && blog.frontmatter.type === 'jsx'
+					? path.resolve(`./src/pages${blog.frontmatter.path}.tsx`)
+					: blogPostTemplate,
 			context: {
 				prev: i > 0 ? blogs[i - 1] : null,
 				next: i < blogs.length - 1 ? blogs[i + 1] : null,

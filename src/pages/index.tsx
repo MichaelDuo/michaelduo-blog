@@ -27,7 +27,7 @@ const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
 							title={blog.frontmatter.title}
 							date={blog.frontmatter.date}
 							path={blog.frontmatter.path}
-							excerpt={blog.excerpt}
+							excerpt={blog.frontmatter.brief || blog.excerpt}
 						></BlogItem>
 					);
 				})}
@@ -51,6 +51,7 @@ export const pageQuery = graphql`
 						date(formatString: "MMMM DD, YYYY")
 						path
 						tags
+						brief
 					}
 				}
 			}
