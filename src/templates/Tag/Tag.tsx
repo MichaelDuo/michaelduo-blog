@@ -1,25 +1,32 @@
 import {graphql} from 'gatsby';
 import React from 'react';
 import Layout from '../../ui/Layout';
-import Header from '../../components/Header';
 import Link from '../../components/Link';
-import _ from 'lodash';
-import {LightAsync as SyntaxHighlighter} from 'react-syntax-highlighter';
-import {
-	a11yDark,
-	a11yLight,
-} from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Header from '../../components/Header';
 
 interface Props {
-	data: any;
+	tag: string;
+	pathContext: any;
 }
 
-const Blog = (props: React.PropsWithChildren<Props>): JSX.Element => {
+const Tag = (props: React.PropsWithChildren<Props>): JSX.Element => {
+	const {blogs, tag} = props.pathContext;
 	return (
 		<Layout>
-			<div className="markdown-body">Hello</div>
+			<Header type="h1">🏷 {tag}</Header>
+			<ul>
+				{blogs.map((blog, idx) => {
+					return (
+						<li key={idx}>
+							<Link to={blog.frontmatter.path}>
+								{blog.frontmatter.title}
+							</Link>
+						</li>
+					);
+				})}
+			</ul>
 		</Layout>
 	);
 };
 
-export default Blog;
+export default Tag;

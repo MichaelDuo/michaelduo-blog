@@ -10,46 +10,82 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 	const blogPostTemplate = path.resolve(
 		`src/templates/BlogPost/BlogPost.tsx`
 	);
-	const tagTemplate = path.resolve(`src/templates/Tag/Tag.tsx`);
-	const blogsQuery = await graphql(`
+
+	const markdwonQuery = await graphql(`
 		{
 			allMarkdownRemark(
 				sort: {order: DESC, fields: [frontmatter___date]}
-				limit: 1000
 			) {
 				edges {
 					node {
 						frontmatter {
+							date
 							path
 							tags
+							title
 						}
 					}
 				}
 			}
 		}
 	`);
-	if (blogsQuery.errors) {
+	if (markdwonQuery.errors) {
 		reporter.panicOnBuild(`Error while running GraphQL query.`);
 		return;
 	}
 
-	const tags = [];
-	blogsQuery.data.allMarkdownRemark.edges.forEach(({node}) => {
+	const markdowns = markdwonQuery.data.allMarkdownRemark.edges.map(
+		(e) => e.node
+	);
+
+	const blogs = _.filter(markdowns, (markdown) =>
+		markdown.frontmatter.path.match(/^\/blogs\/.*/)
+	);
+
+	for (let i = 0; i < blogs.length; i++) {
+		const blog = blogs[i];
 		createPage({
-			path: node.frontmatter.path,
+			path: blog.frontmatter.path,
 			component: blogPostTemplate,
-			context: {}, // additional data can be passed via context
+			context: {
+				prev: i > 0 ? blogs[i - 1] : null,
+				next: i < blogs.length - 1 ? blogs[i + 1] : null,
+				tags: getTags(blog.frontmatter.tags),
+			},
 		});
-		tags.push(...getTags(node.frontmatter.tags));
+	}
+
+	const nonBlogs = _.filter(
+		markdowns,
+		(markdown) => !markdown.frontmatter.path.match(/^\/blogs\/.*/)
+	);
+
+	for (let i = 0; i < nonBlogs.length; i++) {
+		const markdown = nonBlogs[i];
+		createPage({
+			path: markdown.frontmatter.path,
+			component: blogPostTemplate,
+			context: {},
+		});
+	}
+
+	const tagTemplate = path.resolve(`src/templates/Tag/Tag.tsx`);
+	const tagMap = {};
+	blogs.forEach((blog) => {
+		getTags(blog.frontmatter.tags).forEach((tag) => {
+			if (!tagMap[tag]) tagMap[tag] = [];
+			tagMap[tag].push(blog);
+		});
 	});
 
-	for (let tag of tags) {
+	_.keys(tagMap).map((tag) => {
 		createPage({
-			path: `tags/${tag}`,
+			path: `/tags/${tag}`,
 			component: tagTemplate,
 			context: {
 				tag,
+				blogs: tagMap[tag],
 			}, // additional data can be passed via context
 		});
-	}
+	});
 };

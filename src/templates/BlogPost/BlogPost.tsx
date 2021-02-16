@@ -13,12 +13,15 @@ import './BlogPost.css';
 
 interface Props {
 	data: any;
+	pathContext: any;
 }
 
 const Blog = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	const {markdownRemark: post} = props.data;
+	const {prev, next, tags} = props.pathContext;
 	const titleAst = _.get(post.htmlAst, 'children.0');
 	const htmlAst = {...post.htmlAst};
+
 	if (
 		post.frontmatter.date &&
 		titleAst &&
@@ -42,6 +45,32 @@ const Blog = (props: React.PropsWithChildren<Props>): JSX.Element => {
 		<Layout>
 			<div className="markdown-body">
 				<MDHtml ast={htmlAst} />
+			</div>
+			<div className="my-5">
+				{(tags || []).map((tag: string, idx) => {
+					return (
+						<div key={idx}>
+							🏷 <Link to={`/tags/${tag}`}>{tag}</Link>
+						</div>
+					);
+				})}
+			</div>
+
+			<div className="flex justify-between mt-10">
+				<div>
+					{prev ? (
+						<Link to={prev.frontmatter.path}>
+							← {prev.frontmatter.title}
+						</Link>
+					) : null}
+				</div>
+				<div>
+					{next ? (
+						<Link to={next.frontmatter.path}>
+							{next.frontmatter.title} →
+						</Link>
+					) : null}
+				</div>
 			</div>
 		</Layout>
 	);
