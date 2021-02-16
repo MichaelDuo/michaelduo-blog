@@ -6,7 +6,7 @@ interface Props {}
 
 const Layout = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	return (
-		<div className="max-w-screen-md min-h-screen mx-auto">
+		<div className="max-w-screen-md min-h-screen mx-auto text-sm sm:text-base">
 			<div className="my-3 mx-5 md:mx-0">
 				<Navbar />
 				<main className="pb-5">{props.children}</main>

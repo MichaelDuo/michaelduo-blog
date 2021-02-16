@@ -22,7 +22,9 @@ const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
 								<Link to={blog.frontmatter.path}>
 									{blog.frontmatter.title}
 								</Link>{' '}
-								{blog.frontmatter.date}
+								<div className="sm:inline-block">
+									{blog.frontmatter.date}
+								</div>
 							</li>
 						);
 					})}

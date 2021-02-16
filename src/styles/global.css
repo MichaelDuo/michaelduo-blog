@@ -29,5 +29,5 @@ ul li {
 	&::before {
 		content: '* ';
 	}
-	text-indent: -1rem;
+	@apply -ml-4;
 }
