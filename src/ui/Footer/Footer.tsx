@@ -5,7 +5,7 @@ const Footer = (): JSX.Element => {
 	return (
 		<footer className="mt-8 pt-2 pb-16 border-t-2">
 			2021 © Yuxi Dong |{' '}
-			<Link to="https://github.com/MichaelDuo/gatsby-boilerplate">
+			<Link to="https://github.com/MichaelDuo/michaelduo-blog">
 				Source Code
 			</Link>{' '}
 			| Powered By <Link to="https://www.gatsbyjs.com/">Gatsby</Link>
