@@ -49,7 +49,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 			path: blog.frontmatter.path,
 			component:
 				blog.frontmatter.type && blog.frontmatter.type === 'jsx'
-					? path.resolve(`./src/pages${blog.frontmatter.path}.tsx`)
+					? path.resolve(`./src${blog.frontmatter.path}.tsx`)
 					: blogPostTemplate,
 			context: {
 				prev: i > 0 ? blogs[i - 1] : null,
