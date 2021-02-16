@@ -1,0 +1,9 @@
+.link {
+	border-bottom-width: 0.15rem;
+}
+
+@media (min-width: 640px) {
+	.link {
+		border-bottom-width: 0.2rem;
+	}
+}

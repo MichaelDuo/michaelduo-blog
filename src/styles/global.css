@@ -12,10 +12,6 @@ body {
 	@apply text-white bg-indigo-800;
 }
 
-.border-b-3 {
-	border-bottom-width: 3px;
-}
-
 ol,
 ul {
 	@apply pl-4;

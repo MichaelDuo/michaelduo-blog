@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 interface Props {
 	to?: string;
@@ -9,7 +10,7 @@ const Link = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	return (
 		<a
 			className={
-				`border-b-3 border-indigo-700 hover:bg-indigo-800 hover:text-white cursor-pointer ` +
+				`link border-indigo-700 hover:bg-indigo-800 hover:text-white cursor-pointer ` +
 				props.className
 			}
 			href={props.to}
