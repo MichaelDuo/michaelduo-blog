@@ -10,19 +10,19 @@
 	&::before {
 		content: '# ';
 	}
-	@apply text-gray-900 text-lg sm:text-xl font-medium mt-8 mb-5;
+	@apply text-gray-900 text-lg sm:text-xl font-medium mt-6 sm:mt-8 mb-5;
 }
 
 .h2 {
 	&::before {
 		content: '## ';
 	}
-	@apply text-gray-900 text-base sm:text-lg font-medium mt-8 mb-3;
+	@apply text-gray-900 text-base sm:text-lg font-medium mt-6 sm:mt-8 mb-3;
 }
 
 .h3 {
 	&::before {
 		content: '### ';
 	}
-	@apply text-gray-900 text-sm sm:text-base font-medium mt-8 mb-1;
+	@apply text-gray-900 text-sm sm:text-base font-medium mt-6 sm:mt-8 mb-1;
 }

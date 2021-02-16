@@ -46,7 +46,7 @@ const Blog = (props: React.PropsWithChildren<Props>): JSX.Element => {
 			<div className="markdown-body">
 				<MDHtml ast={htmlAst} />
 			</div>
-			<div className="my-5">
+			<div className="my-3 sm:my-5">
 				{(tags || []).map((tag: string, idx) => {
 					return (
 						<div key={idx}>
@@ -56,7 +56,7 @@ const Blog = (props: React.PropsWithChildren<Props>): JSX.Element => {
 				})}
 			</div>
 
-			<div className="flex justify-between mt-10">
+			<div className="flex flex-col sm:flex-row justify-between mt-10 space-y-1">
 				<div>
 					{prev ? (
 						<Link to={prev.frontmatter.path}>
