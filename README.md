@@ -46,6 +46,9 @@ All 3rd party dependencies should be dynamically imported by using `import()` fu
 
 ## Reference
 
--   This blog is developed with the awesome framework [Gatsby](https://www.gatsbyjs.com/)
+-   This blog is developed with awesome [Gatsby](https://www.gatsbyjs.com/)
+-   Written in [Typescript](https://www.typescriptlang.org/)
 -   Styled with [tailwindcss](https://tailwindcss.com/)
 -   The look takes a havey reference on [Archie theme](https://github.com/athul/archie)
+-   Code rendered with [react-syntax-highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter)
+-   Deployed on github pages by [TravisCI](https://travis-ci.org/)
