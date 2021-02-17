@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import Layout from '../ui/Layout';
+import BlogLayout from '../ui/BlogLayout';
 import Header from '../components/Header';
 
-const Test = (): JSX.Element => {
+interface Props {
+	pathContext: any;
+}
+
+const Test = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	const [count, setCounter] = useState<number>(0);
 	useEffect(() => {
 		setTimeout(() => {
@@ -19,7 +23,7 @@ const Test = (): JSX.Element => {
 	}, []);
 
 	return (
-		<Layout>
+		<BlogLayout pathContext={props.pathContext}>
 			<Header>This is a jsx Blog</Header>
 			<p>Counter: {count}</p>
 			<div
@@ -33,7 +37,7 @@ const Test = (): JSX.Element => {
 			`,
 				}}
 			></div>
-		</Layout>
+		</BlogLayout>
 	);
 };
 

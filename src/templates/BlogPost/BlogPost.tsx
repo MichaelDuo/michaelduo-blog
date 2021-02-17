@@ -10,6 +10,7 @@ import {
 	a11yLight,
 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import './BlogPost.css';
+import BlogLayout from '../../ui/BlogLayout';
 
 interface Props {
 	data: any;
@@ -18,7 +19,6 @@ interface Props {
 
 const Blog = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	const {markdownRemark: post} = props.data;
-	const {prev, next, tags} = props.pathContext;
 	const titleAst = _.get(post.htmlAst, 'children.0');
 	const htmlAst = {...post.htmlAst};
 
@@ -42,37 +42,11 @@ const Blog = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	}
 
 	return (
-		<Layout>
+		<BlogLayout pathContext={props.pathContext}>
 			<div className="markdown-body">
 				<MDHtml ast={htmlAst} />
 			</div>
-			<div className="my-3 sm:my-5">
-				{(tags || []).map((tag: string, idx) => {
-					return (
-						<div key={idx}>
-							🏷 <Link to={`/tags/${tag}`}>{tag}</Link>
-						</div>
-					);
-				})}
-			</div>
-
-			<div className="flex flex-col sm:flex-row justify-between mt-10 space-y-1">
-				<div>
-					{prev ? (
-						<Link to={prev.frontmatter.path}>
-							← {prev.frontmatter.title}
-						</Link>
-					) : null}
-				</div>
-				<div>
-					{next ? (
-						<Link to={next.frontmatter.path}>
-							{next.frontmatter.title} →
-						</Link>
-					) : null}
-				</div>
-			</div>
-		</Layout>
+		</BlogLayout>
 	);
 };
 
