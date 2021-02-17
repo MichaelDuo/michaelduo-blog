@@ -116,8 +116,7 @@ const MDHtml = (props: React.PropsWithChildren<{ast: HtmlAst}>) => {
 	} else if (['h1', 'h2', 'h3'].includes(ast.tagName)) {
 		return <Header type={ast.tagName as any}>{children}</Header>;
 	} else if (ast.tagName === 'a') {
-		const href = ast.properties.href;
-		return <Link to={href}>{children}</Link>;
+		return <Link to={_.trim(ast.properties.href, '~')}>{children}</Link>;
 	} else if (
 		ast.tagName === 'pre' &&
 		_.get(ast, 'children.0.tagName') === 'code'
