@@ -1,11 +1,11 @@
 ---
-path: /blogs/when-should-you-use-gatsby
+path: /blogs/when-should-we-use-gatsby
 date: 2020-02-11
-title: When should you use Gatsby.js?
+title: When should we use Gatsby.js?
 tags: featured
 ---
 
-# When should you use Gatsby.js?
+# When should we use Gatsby.js?
 
 React is great for SPA(Single page application), by using [CRA](https://github.com/facebook/create-react-app), we can create one in no time, zero configuration.
 
