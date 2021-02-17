@@ -8,14 +8,14 @@ This blog serves as a place to store my personal thoughts, notes, experience, it
 
 The blog has two types, the default type is `markdown ` type, another is `jsx` type.
 
-All `markdown` blogs should be saved under `/markdowns/blogs`, and all `jsx` blogs should be saved under `src/blogs` the `jsx` blogs should also have a `.md` file saved under `/markdowns/blogs`, it will serve as a index.
+All `markdown` blogs should be saved under `/markdowns/blogs`, and all `jsx` blogs should be saved under `src/blogs` the `jsx` blogs should also have a `.md` file saved under `/markdowns/blogs`, it will serve as an index.
 
 All markdown files should include frontmatter, it will be the metadata for the file. It currently support 5 attributes.
 
--   path: the path generated for the artical, if the path starts with `/blogs`, it will be regarded as a blog. If the path doesn't start with `/blogs`, the pash is still getting generated, but will not be indexed as a blog.
+-   path: the path generated for the article, if the path starts with `/blogs`, it will be regarded as a blog. If the path doesn’t start with `/blogs`, the path is still getting generated, but will not be indexed as a blog.
 -   date: `YYYY-MM-DD`
 -   title
--   tags: tags should be seperated by ',', a tag should not include any spaces, case is ignored.
+-   tags: tags should be separated by ‘,’, a tag should not include any spaces, case is ignored.
 -   type(optional): if not specified, it will be regarded as a markdown blog, if set to `jsx`, the blog file will be look up by the `./src/${path}`
 -   brief(optional): The excerpt that will be displayed on the home page.
 
@@ -34,7 +34,7 @@ brief: This is a jsx blog brief
 
 ## What is being displayed?
 
-Only blogs contains `featured` tag will be displayed on the home page. All blogs will be displayed under 'All Posts' tab.
+Only blogs contains `featured` tag will be displayed on the home page. All blogs will be displayed under ‘All Posts’ tab.
 
 ## How date is being inserted?
 
@@ -42,13 +42,13 @@ All blogs should start with a `h1` tag, as the renderer will look for the first 
 
 ## JSX type notes
 
-All 3rd party dependencies should be dynamically imported by using `import()` function. Check out this [doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).
+All 3rd party dependencies should be dynamically imported by using `import()` function. Check out this [doc](~https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import~).
 
 ## Reference
 
--   This blog is developed with awesome [Gatsby](https://www.gatsbyjs.com/)
--   Written in [Typescript](https://www.typescriptlang.org/)
--   Styled with [tailwindcss](https://tailwindcss.com/)
--   The look takes a havey reference on [Archie theme](https://github.com/athul/archie)
--   Code rendered with [react-syntax-highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter)
--   Deployed on github pages by [TravisCI](https://travis-ci.org/)
+-   This blog is developed with awesome [Gatsby](~https://www.gatsbyjs.com/~)
+-   Written in [Typescript](~https://www.typescriptlang.org/~)
+-   Styled with [tailwindcss](~https://tailwindcss.com/~)
+-   The look takes a heavy reference on [Archie theme](~https://github.com/athul/archie~)
+-   Code rendered with [react-syntax-highlighter](~https://github.com/react-syntax-highlighter/react-syntax-highlighter~)
+-   Deployed on github pages by [TravisCI](~https://travis-ci.org/~)
