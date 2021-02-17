@@ -1,11 +1,11 @@
 ---
-path: /blogs/my-second-post
-date: 2019-05-04
-title: My second blog post
+path: /blogs/rendering-test
+date: 2020-02-15
+title: Blog rendering test
 tags: featured
 ---
 
-# Yooooo
+# Blog Rendering Test
 
 Link Test [hello](http://www.google.com)
 

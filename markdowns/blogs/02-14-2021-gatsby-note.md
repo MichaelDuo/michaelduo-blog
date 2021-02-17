@@ -1,6 +1,6 @@
 ---
-path: /blogs/my-first-post
-date: 2019-05-04
+path: /blogs/when-should-you-use-gatsby
+date: 2020-02-11
 title: When should you use Gatsby.js?
 tags: featured
 ---
