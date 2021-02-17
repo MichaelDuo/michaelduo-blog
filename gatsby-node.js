@@ -2,7 +2,7 @@ const path = require('path');
 const _ = require('lodash');
 
 function getTags(tagsStr) {
-	return _.split(_.lowerCase(_.replace(tagsStr, /\s/g, '')), ' ');
+	return _.split(_.replace(tagsStr, /\s/g, '').toLowerCase(), ',');
 }
 
 exports.createPages = async ({actions, graphql, reporter}) => {
