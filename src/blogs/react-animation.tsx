@@ -26,7 +26,7 @@ const Test = (props: React.PropsWithChildren<Props>): JSX.Element => {
 
 	return (
 		<BlogLayout pathContext={props.pathContext}>
-			<Header>This is a jsx Blog</Header>
+			<Header>React animation playground</Header>
 			<p>Counter: {count}</p>
 			<div
 				dangerouslySetInnerHTML={{

@@ -3,13 +3,22 @@ import Layout from '../ui/Layout';
 import {graphql} from 'gatsby';
 import Header from '../components/Header';
 import Link from '../components/Link';
+import {groupBy} from 'lodash';
 
 interface Props {
 	data: any;
 }
 
 const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
-	const blogs = props.data.allMarkdownRemark.edges.map((e) => e.node);
+	let blogs = props.data.allMarkdownRemark.edges.map((e) => e.node);
+	const groupedBlogs = groupBy(blogs, (blog) =>
+		blog.frontmatter.date ? 'withDate' : 'withoutDate'
+	);
+
+	blogs = [].concat(
+		groupedBlogs['withDate'] || [],
+		groupedBlogs['withoutDate'] || []
+	);
 
 	return (
 		<Layout>

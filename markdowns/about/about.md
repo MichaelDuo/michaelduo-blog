@@ -22,7 +22,7 @@ Master of Science in Computer Engineering
 -   Frontend: React.js, Vue.js, Next.js, Flutter, Redux, HTML, CSS, Electron
 -   Backend: Node.js, Docker, MongoDB, GraphQL, SpringBoot, Nginx, MySQL, AWS, GCP, REST API - Data: Hadoop, Spark, Tensorflow, SKLearn, Numpy
 -   Testing: Jest, Cucumber, Cypress, enzyme, mocha
--   Others: Afile Methodologies, Travis, CircleCI, GitlabCI, Jenkins, ESLint, Linux, Git
+-   Others: Agile Methodologies, Travis, CircleCI, GitlabCI, Jenkins, ESLint, Linux, Git
 
 ## Work Experience
 
