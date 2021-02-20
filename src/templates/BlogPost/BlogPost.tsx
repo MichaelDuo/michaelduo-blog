@@ -1,6 +1,5 @@
 import {graphql} from 'gatsby';
 import React from 'react';
-import Layout from '../../ui/Layout';
 import Header from '../../components/Header';
 import Link from '../../components/Link';
 import _ from 'lodash';
@@ -11,6 +10,12 @@ import {
 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import './BlogPost.css';
 import BlogLayout from '../../ui/BlogLayout';
+
+const loadBlogComponents = (require as any).context(
+	'../../blogComponents',
+	true,
+	/.*/
+);
 
 interface Props {
 	data: any;
@@ -75,6 +80,7 @@ interface HtmlAst {
 const MDHtml = (props: React.PropsWithChildren<{ast: HtmlAst}>) => {
 	const {ast} = props;
 	// console.log('-----', ast);
+	const componentReg = /^{{\s*"component":\s*"(.*)"\s*}}/;
 
 	let children = null;
 	if (ast.children && ast.children.length) {
@@ -89,6 +95,14 @@ const MDHtml = (props: React.PropsWithChildren<{ast: HtmlAst}>) => {
 		return <>{ast.value}</>;
 	} else if (['h1', 'h2', 'h3'].includes(ast.tagName)) {
 		return <Header type={ast.tagName as any}>{children}</Header>;
+	} else if (
+		ast.tagName === 'p' &&
+		componentReg.test(_.get(ast, 'children.0.value'))
+	) {
+		const Component = loadBlogComponents(
+			`./${ast.children[0].value.match(componentReg)[1]}`
+		).default;
+		return <Component />;
 	} else if (ast.tagName === 'a') {
 		return <Link to={_.trim(ast.properties.href, '~')}>{children}</Link>;
 	} else if (
@@ -126,7 +140,6 @@ const MDHtml = (props: React.PropsWithChildren<{ast: HtmlAst}>) => {
 			</span>
 		);
 	} else {
-		// console.log(ast);
 		return (
 			// eslint-disable-next-line
 			// @ts-ignore

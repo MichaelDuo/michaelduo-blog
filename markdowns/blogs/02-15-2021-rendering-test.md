@@ -48,3 +48,9 @@ function(){
     console.log("Hello")
 }
 ```
+
+{{ "component": "rendering-test/test" }}
+
+## This is another test
+
+Hello
