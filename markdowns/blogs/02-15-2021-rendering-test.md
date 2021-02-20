@@ -7,50 +7,53 @@ tags: featured
 
 # Blog Rendering Test
 
-Link Test [hello](http://www.google.com)
+Renders .md file with various components.
 
-## Finding The Optimal Sub Problems
+## Text rendering
 
-DFS, BFS, Backtracking, DP, Divide and conqure
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id lacus vel turpis venenatis pharetra. Donec porta urna ac hendrerit sodales. Vivamus posuere condimentum metus eu malesuada. Nullam sit amet eros tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec in purus enim. Praesent gravida urna risus, eget tempor ligula pretium eget. Nunc molestie mi sit amet sapien posuere tempor. Vivamus a arcu ac lacus aliquet malesuada. Quisque varius neque in lectus fermentum commodo.
 
-## Finding The Data Structure
+Donec tincidunt justo nulla, eget tempor arcu egestas nec. Pellentesque odio velit, molestie non libero eget, ullamcorper lobortis dolor. Suspendisse mollis neque ante, ac pretium leo rhoncus et. Vestibulum ligula odio, pharetra nec massa a, luctus scelerisque nisi. Curabitur in mi in velit hendrerit condimentum. Proin feugiat turpis dolor, nec consectetur tellus fermentum vel. Quisque et massa pellentesque, fringilla mauris a, finibus augue.
 
-Stack, Heap, Binary Tree, Union-find
+## Links rendering
 
-## Finding The Algorithm
+Link to [MichaelDuo's Blog](/)
 
-KMP, Round-robin. Prefix Sum, Reservoir Sampling, Two pointers, Topological Sort, Greedy, random selection
+## Ordered List Rendering
 
-1. Try to guess time complexity
-   Especially O(n)
-2. Use Recursion
-3. Derive some knowledge
+1. List Item 1
+2. List Item 2
+3. List Item 3
 
-Inline code test `console.log('123')` test
+## Unordered List Rendering
 
-fewfewfew \
-fewfewfew \
-fewfe
+-   List Item 1
+    -   Nested Item 1
+-   List Item 2
+-   List Item 3
 
-```python
-def saySometing():
-    print("HelloWorld")
-def saySometing():
-    print("HelloWorld")
-def saySometing():
-    print("HelloWorld")
-```
+## Blockquote Rendering
 
-123
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id lacus vel turpis venenatis pharetra. Donec porta urna ac hendrerit sodales. Vivamus posuere condimentum metus eu malesuada. Nullam sit amet eros tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec in purus enim. Praesent gravida urna risus, eget tempor ligula pretium eget. Nunc molestie mi sit amet sapien posuere tempor.
+
+## Code Rendering
+
+Inline code rendering: this is a javascript code `console.log('helloworld')` test.
+
+Code block:
 
 ```javascript
-function(){
-    console.log("Hello")
+function sayHello() {
+	console.log('HelloWorld');
 }
 ```
 
-{{ "component": "rendering-test/test" }}
+## React Element Rendering
 
-## This is another test
+### Counter Component
 
-Hello
+{{ "component": "rendering-test/counter" }}
+
+### Embeded Component
+
+{{ "component": "rendering-test/codepenEmbed" }}
