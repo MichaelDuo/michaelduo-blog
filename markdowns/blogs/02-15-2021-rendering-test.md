@@ -3,6 +3,7 @@ path: /blogs/rendering-test
 date: 2020-02-15
 title: Blog rendering test
 tags: featured
+score: 100
 ---
 
 # Blog Rendering Test

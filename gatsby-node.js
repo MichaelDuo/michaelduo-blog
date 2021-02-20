@@ -1,9 +1,6 @@
 const path = require('path');
 const _ = require('lodash');
-
-function getTags(tagsStr) {
-	return _.split(_.replace(tagsStr, /\s/g, '').toLowerCase(), ',');
-}
+const {getTags, sortBlogs} = require('./src/utils');
 
 exports.createPages = async ({actions, graphql, reporter}) => {
 	const {createPage} = actions;
@@ -24,6 +21,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 							path
 							tags
 							title
+							score
 						}
 					}
 				}
@@ -39,8 +37,10 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 		(e) => e.node
 	);
 
-	const blogs = _.filter(markdowns, (markdown) =>
-		markdown.frontmatter.path.match(/^\/blogs\/.*/)
+	const blogs = sortBlogs(
+		_.filter(markdowns, (markdown) =>
+			markdown.frontmatter.path.match(/^\/blogs\/.*/)
+		)
 	);
 
 	for (let i = 0; i < blogs.length; i++) {
@@ -52,8 +52,18 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 					? path.resolve(`./src${blog.frontmatter.path}.tsx`)
 					: blogPostTemplate,
 			context: {
-				prev: i > 0 ? blogs[i - 1] : null,
-				next: i < blogs.length - 1 ? blogs[i + 1] : null,
+				prev:
+					i > 0 &&
+					(blog.frontmatter.score < 0 ||
+						blogs[i - 1].frontmatter.score >= 0)
+						? blogs[i - 1]
+						: null,
+				next:
+					i < blogs.length - 1 &&
+					(blog.frontmatter.score < 0 ||
+						blogs[i + 1].frontmatter.score >= 0)
+						? blogs[i + 1]
+						: null,
 				tags: getTags(blog.frontmatter.tags),
 			},
 		});

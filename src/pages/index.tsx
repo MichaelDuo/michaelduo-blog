@@ -4,18 +4,16 @@ import SiteDescription from '../ui/SiteDescription';
 import Layout from '../ui/Layout';
 import {graphql} from 'gatsby';
 import _ from 'lodash';
-import {getTags} from '../utils';
+import {getBlogList} from '../utils';
 
 interface Props {
 	data: any;
 }
 
 const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
-	const blogs = props.data.allMarkdownRemark.edges.map((e) => e.node);
-	const featuredBlogs = blogs.filter(
-		(blog) => _.indexOf(getTags(blog.frontmatter.tags), 'featured') >= 0
-	);
-
+	let blogs = props.data.allMarkdownRemark.edges.map((e) => e.node);
+	blogs = getBlogList(blogs);
+	const featuredBlogs = blogs.filter((blog) => blog.frontmatter.score >= 90);
 	return (
 		<Layout>
 			<SiteDescription />
@@ -52,6 +50,7 @@ export const pageQuery = graphql`
 						path
 						tags
 						brief
+						score
 					}
 				}
 			}

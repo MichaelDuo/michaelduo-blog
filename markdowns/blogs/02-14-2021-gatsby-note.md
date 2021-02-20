@@ -3,6 +3,7 @@ path: /blogs/when-should-we-use-gatsby
 date: 2020-02-11
 title: When should we use Gatsby.js?
 tags: featured
+score: 95
 ---
 
 # When should we use Gatsby.js?

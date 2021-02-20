@@ -15,7 +15,7 @@ const Navbar = (): JSX.Element => {
 				},
 				{
 					text: 'All Posts',
-					link: '/posts',
+					link: '/blogs',
 				},
 				{
 					text: 'About',

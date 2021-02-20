@@ -3,7 +3,7 @@ import Layout from '../ui/Layout';
 import {graphql} from 'gatsby';
 import Header from '../components/Header';
 import Link from '../components/Link';
-import {groupBy} from 'lodash';
+import {getBlogList} from '../utils';
 
 interface Props {
 	data: any;
@@ -11,14 +11,7 @@ interface Props {
 
 const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	let blogs = props.data.allMarkdownRemark.edges.map((e) => e.node);
-	const groupedBlogs = groupBy(blogs, (blog) =>
-		blog.frontmatter.date ? 'withDate' : 'withoutDate'
-	);
-
-	blogs = [].concat(
-		groupedBlogs['withDate'] || [],
-		groupedBlogs['withoutDate'] || []
-	);
+	blogs = getBlogList(blogs);
 
 	return (
 		<Layout>
@@ -58,6 +51,7 @@ export const pageQuery = graphql`
 						date(formatString: "MMMM DD, YYYY")
 						path
 						tags
+						score
 					}
 				}
 			}
