@@ -1,6 +1,6 @@
 const path = require('path');
 const _ = require('lodash');
-const {getTags, sortBlogs} = require('./src/utils');
+const {getTags, sortBlogs, filterBlogs} = require('./src/utils');
 
 exports.createPages = async ({actions, graphql, reporter}) => {
 	const {createPage} = actions;
@@ -85,7 +85,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 
 	const tagTemplate = path.resolve(`src/templates/Tag/Tag.tsx`);
 	const tagMap = {};
-	blogs.forEach((blog) => {
+	filterBlogs(blogs).forEach((blog) => {
 		getTags(blog.frontmatter.tags).forEach((tag) => {
 			if (!tagMap[tag]) tagMap[tag] = [];
 			tagMap[tag].push(blog);

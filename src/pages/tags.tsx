@@ -4,7 +4,7 @@ import {graphql} from 'gatsby';
 import Header from '../components/Header';
 import Link from '../components/Link';
 import {reduce, countBy, keys, sortBy} from 'lodash';
-import {getTags} from '../utils';
+import {getTags, filterBlogs} from '../utils';
 import '../styles/tags.css';
 
 interface Props {
@@ -12,8 +12,8 @@ interface Props {
 }
 
 const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
-	const blogs = props.data.allMarkdownRemark.edges.map((e) => e.node);
-
+	let blogs = props.data.allMarkdownRemark.edges.map((e) => e.node);
+	blogs = filterBlogs(blogs);
 	const tags = countBy(
 		reduce(
 			blogs,
@@ -56,6 +56,7 @@ export const pageQuery = graphql`
 						date(formatString: "MMMM DD, YYYY")
 						path
 						tags
+						score
 					}
 				}
 			}
