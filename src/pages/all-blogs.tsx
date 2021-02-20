@@ -3,7 +3,7 @@ import Layout from '../ui/Layout';
 import {graphql} from 'gatsby';
 import Header from '../components/Header';
 import Link from '../components/Link';
-import {getBlogList} from '../utils';
+import {sortBlogs} from '../utils';
 
 interface Props {
 	data: any;
@@ -11,11 +11,11 @@ interface Props {
 
 const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	let blogs = props.data.allMarkdownRemark.edges.map((e) => e.node);
-	blogs = getBlogList(blogs);
+	blogs = sortBlogs(blogs);
 
 	return (
 		<Layout>
-			<Header>All articles</Header>
+			<Header>All articles [with hidden]</Header>
 			<section>
 				<ul className="space-y-1">
 					{blogs.map((blog) => {
@@ -37,7 +37,7 @@ const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
 };
 
 export const pageQuery = graphql`
-	query AllPostsQuery {
+	query AllPostsWithHiddenQuery {
 		allMarkdownRemark(
 			filter: {frontmatter: {path: {regex: "/^/blogs.*/"}}}
 		) {

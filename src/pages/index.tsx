@@ -37,7 +37,6 @@ const IndexPage = (props: React.PropsWithChildren<Props>): JSX.Element => {
 export const pageQuery = graphql`
 	query IndexQuery {
 		allMarkdownRemark(
-			sort: {order: DESC, fields: [frontmatter___date]}
 			filter: {frontmatter: {path: {regex: "/^/blogs.*/"}}}
 		) {
 			edges {
