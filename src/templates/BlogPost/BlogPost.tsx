@@ -118,7 +118,7 @@ const MDHtml = (props: React.PropsWithChildren<{ast: HtmlAst}>) => {
 		).replace('language-', '');
 		return (
 			<SyntaxHighlighter language={language} style={a11yDark}>
-				{code}
+				{_.trim(code)}
 			</SyntaxHighlighter>
 		);
 	} else if (ast.tagName === 'code') {
