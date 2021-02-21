@@ -2,7 +2,6 @@
 path: /blogs/deploy-docker-gcp
 title: Deploy a docker image on GCP Kubernetes Engine
 tags: backend, featured
-brief: React animation playground
 score: 95
 date: 2020-02-20
 ---
