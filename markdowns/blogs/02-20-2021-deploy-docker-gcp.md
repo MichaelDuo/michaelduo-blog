@@ -66,7 +66,9 @@ Create GKE cluster via web console
 
 In **cloud shell**
 `kubectl create deployment hello-app —image=gcr.io/${PROJECT_ID}/hello-app:v1`
+
 `kubectl scale deployment hello-app —replicas=3`
+
 `kubectl autoscale deployment hello-app —cpu-percent=80 —min=1 —max=5`
 
 > Log pods:
@@ -77,20 +79,21 @@ Click `Deploy` Button, and follow the instructions.
 
 ## Expose the sample app to the internet.
 
-On UI, click actions->Expose.
-Set target port to application port.
-Service type set to load-balancer.
-Done
+1. On UI, click actions->Expose.
+2. Set target port to application port.
+3. Service type set to load-balancer.
+4. Done
 
 In service tab, External endpoints can be accessed via internet.
 
 ## Deploy a new version of the sample app.
 
-`docker build -t gcr.io/${PROJECT_ID}/hello-app:v2 .`
+`docker build -t gcr.io/${PROJECT_ID}/hello-app:v2 .`  
 `docker push gcr.io/${PROJECT_ID}/hello-app:v2`
-Rolling update:
-In console UI:
-Actions->Rolling update
+
+Rolling update:  
+In console UI:  
+Actions->Rolling update  
 Set new image url
 
 ## Clean up
