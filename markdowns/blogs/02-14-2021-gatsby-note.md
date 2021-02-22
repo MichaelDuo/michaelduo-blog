@@ -3,7 +3,7 @@ path: /blogs/when-should-we-use-gatsby
 date: 2020-02-11
 title: When should we use Gatsby.js?
 tags: featured
-score: 95
+score: 90
 ---
 
 # When should we use Gatsby.js?
@@ -16,6 +16,3 @@ if our website needs SEO, single page application might not our choice.
 Of course we can switch back to old days, writing pure HTML or use template engine like handlebars, but for me, it's very hard to give up all the benefits from React.js. There are some great frameworks that generate high performance static sites and still have 'reactive' features, like [Svelte](https://svelte.dev/).
 
 ## Reference:
-
--   [1232313](https://www.google.com)
--   fejiwjfie j
