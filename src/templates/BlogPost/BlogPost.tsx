@@ -134,6 +134,7 @@ const MDHtml = (props: React.PropsWithChildren<{ast: HtmlAst}>) => {
 						padding: '0px',
 						overflowX: 'none',
 					}}
+					wrapLongLines
 				>
 					{code}
 				</SyntaxHighlighter>
