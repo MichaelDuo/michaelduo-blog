@@ -1,7 +1,7 @@
 ---
 path: /blogs/deploy-docker-gcp
 title: Deploy a docker image on GCP Kubernetes Engine
-tags: note, backend
+tags: note, backend, gcp
 score: 95
 date: 2020-02-20
 ---
@@ -58,21 +58,25 @@ gcloud auth configure-docker
 docker push gcr.io/${PROJECT_ID}/hello-app:v1
 ```
 
-## Create a GKE cluster
+**## Deploy the sample app to the cluster**
 
-Create GKE cluster via web console
+In \***\*cloud shell\*\***
+Setup local shell’s kubectl:
 
-## Deploy the sample app to the cluster
+```shell
+gcloud container clusters get-credentials ${CLUSTER_NAME} --region=${region}
+```
 
-In **cloud shell**
+Check setup:
+
+> Log pods:
+> `kubectl get pods`
+
 `kubectl create deployment hello-app —image=gcr.io/${PROJECT_ID}/hello-app:v1`
 
 `kubectl scale deployment hello-app —replicas=3`
 
 `kubectl autoscale deployment hello-app —cpu-percent=80 —min=1 —max=5`
-
-> Log pods:
-> `kubectl get pods`
 
 Or using UI:
 Click `Deploy` Button, and follow the instructions.
