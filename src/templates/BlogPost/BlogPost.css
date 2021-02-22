@@ -125,39 +125,33 @@
 }
 
 /* List style */
-.markdown-body ul li > p,
-.markdown-body ol li > p {
-	display: inline-block;
-	margin: 0;
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 1.75em;
 }
 
 .markdown-body ul ol li {
 	list-style-position: outside;
 }
 
-.markdown-body ul ol {
-	padding-left: 2.5em;
-}
-
 .markdown-body ul > li {
+	position: relative;
 	&::before {
-		content: '* ';
+		content: '*';
+		position: absolute;
+		top: 0;
+		left: -1.75em;
 	}
 }
 
-.markdown-body > ul {
-	@apply -ml-8;
+.markdown-body ul li > p,
+.markdown-body ol li > p {
+	display: inline-block;
+	margin: 0;
 }
 
 .markdown-body ol {
 	list-style-type: decimal;
-}
-
-.markdown-body ol,
-.markdown-body ul {
-	padding-left: 0;
-	margin-top: 0;
-	margin-bottom: 0;
 }
 
 .markdown-body ol ol,
@@ -547,10 +541,10 @@
 	margin-bottom: 0;
 }
 
-.markdown-body ol,
+/* .markdown-body ol,
 .markdown-body ul {
 	padding-left: 2em;
-}
+} */
 
 .markdown-body ol ol,
 .markdown-body ol ul,
