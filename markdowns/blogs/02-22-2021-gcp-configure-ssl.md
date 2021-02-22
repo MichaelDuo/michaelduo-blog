@@ -8,8 +8,12 @@ date: 2020-02-22
 
 # Setup HTTPs for kubernetes
 
+#05_dev/gcp
+
 1. Register a Domain Name
+
 2. Reserve an External IP address in VPC network->External IP addresses
+
 3. Setting up the managed certificate
 
 ```yaml
@@ -25,6 +29,7 @@ spec:
 
 4. Create a DNS zone in Cloud DNS
    Add A record and CNAME
+
 5. Create ingress with HTTPs, select the certificate
    Or using config file:
 
@@ -41,6 +46,11 @@ spec:
     serviceName: service-name
     servicePort: service-port
 ```
+
+6. To verify DNS works, run  
+   `dig +trace duomind.org`  
+   Or  
+   `nslookup duomind.org`
 
 ## References
 
