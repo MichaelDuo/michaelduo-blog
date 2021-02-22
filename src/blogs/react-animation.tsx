@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import BlogLayout from '../ui/BlogLayout';
 import Header from '../components/Header';
-import {saySomething} from '../utils/test';
 
 interface Props {
 	pathContext: any;
@@ -10,13 +9,6 @@ interface Props {
 const Test = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	const [count, setCounter] = useState<number>(0);
 	useEffect(() => {
-		setTimeout(() => {
-			console.log(saySomething());
-			// import('../utils/test').then((test) => {
-			// 	console.log(test.saySomething());
-			// });
-		}, 5000);
-
 		const timer = setInterval(() => {
 			setCounter((prevCount) => prevCount + 1);
 		}, 1000);

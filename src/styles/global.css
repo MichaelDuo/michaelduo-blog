@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); */
 
 body {
@@ -10,6 +6,16 @@ body {
 
 ::selection {
 	@apply text-white bg-indigo-800;
+}
+
+.markdown-body ul li > p,
+ol li > p {
+	display: inline-block;
+	margin: 0;
+}
+
+ul ol li {
+	list-style-position: inside;
 }
 
 ol,
@@ -21,9 +27,12 @@ ol {
 	list-style-type: decimal;
 }
 
-ul li {
+ul > li {
 	&::before {
 		content: '* ';
 	}
+}
+
+ul {
 	@apply -ml-4;
 }

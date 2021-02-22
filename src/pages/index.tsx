@@ -3,7 +3,6 @@ import BlogItem from '../components/BlogItem';
 import SiteDescription from '../ui/SiteDescription';
 import Layout from '../ui/Layout';
 import {graphql} from 'gatsby';
-import _ from 'lodash';
 import {getBlogList} from '../utils';
 
 interface Props {

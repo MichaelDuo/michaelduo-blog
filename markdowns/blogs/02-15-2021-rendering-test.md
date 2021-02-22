@@ -23,14 +23,25 @@ Link to [MichaelDuo's Blog](/)
 ## Ordered List Rendering
 
 1. List Item 1
+    - Nested Item 1
+    - Nested Item 2
+    - Nested Item 2
 2. List Item 2
+    1. Nested Item 1
+    2. Nested Item 2
+    3. Nested Item 2
 3. List Item 3
 
 ## Unordered List Rendering
 
 -   List Item 1
-    -   Nested Item 1
+    1. Nested Item 1
+    2. Nested Item 2
+    3. Nested Item 2
 -   List Item 2
+    -   Nested Item 1
+    -   Nested Item 2
+    -   Nested Item 2
 -   List Item 3
 
 ## Blockquote Rendering
