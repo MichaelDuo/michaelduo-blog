@@ -2,20 +2,23 @@ import React from 'react';
 import './style.css';
 
 interface Props {
-	to?: string;
 	className: string;
+	to?: string;
+	target?: string;
 }
 
 const Link = (props: React.PropsWithChildren<Props>): JSX.Element => {
+	const {to, className, children, ...otherProps} = props;
 	return (
 		<a
 			className={
 				`link border-indigo-700 hover:bg-indigo-800 hover:text-white cursor-pointer ` +
-				props.className
+				className
 			}
-			href={props.to}
+			href={to}
+			{...otherProps}
 		>
-			{props.children}
+			{children}
 		</a>
 	);
 };
