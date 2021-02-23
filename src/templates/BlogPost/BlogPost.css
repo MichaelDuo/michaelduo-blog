@@ -121,12 +121,15 @@
 }
 
 /* List style */
-.markdown-body ul,
+.markdown-body ul {
+	padding-left: 1.5em;
+}
+
 .markdown-body ol {
 	padding-left: 2em;
 }
 
-.markdown-body ul ol li {
+.markdown-body ol li {
 	list-style-position: outside;
 }
 
@@ -136,14 +139,14 @@
 		content: '*';
 		position: absolute;
 		top: 0;
-		left: -2em;
+		left: -1.5rem;
 	}
 }
 
-.markdown-body ul li > p,
-.markdown-body ol li > p {
-	display: inline-block;
+.markdown-body li > p,
+.markdown-body li > p {
 	margin: 0;
+	padding: 0;
 }
 
 .markdown-body ol {
@@ -552,10 +555,6 @@
 
 .markdown-body li {
 	word-wrap: break-all;
-}
-
-.markdown-body li > p {
-	margin-top: 16px;
 }
 
 .markdown-body li + li {

@@ -149,6 +149,7 @@ const MDHtml = (
 					resources[_.get(ast, 'properties.src', '')].childImageSharp
 						.fluid
 				}
+				alt={_.get(ast, 'properties.alt', '')}
 			/>
 		);
 	} else if (

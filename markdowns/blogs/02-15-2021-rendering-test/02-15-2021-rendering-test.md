@@ -23,7 +23,7 @@ Link to [MichaelDuo's Blog](/)
 ## Ordered List Rendering
 
 1. List Item 1
-    - Nested Item 1
+    - Nested Item 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id lacus vel turpis venenatis pharetra. Donec porta urna ac hendrerit sodales.
     - Nested Item 2
     - Nested Item 2
 2. List Item 2
@@ -59,6 +59,24 @@ function sayHello() {
 	console.log('HelloWorld');
 }
 ```
+
+## Picture Rendering
+
+Small Picture
+
+![:sm hello easy](images/easy.png)
+
+Medium Picture
+
+![:md hello easy](images/easy.png)
+
+Large Picture
+
+![:lg hello easy](images/easy.png)
+
+Extra Large Picture
+
+![:xl hello easy](images/easy.png)
 
 ## React Element Rendering
 

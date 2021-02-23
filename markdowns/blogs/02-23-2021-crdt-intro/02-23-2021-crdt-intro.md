@@ -96,7 +96,7 @@ The Array [A,B,C] is represented [A<-B<-C]
 Insert with same LHN are internally sorted via LWW.
 Internal representation of array with concurrent inserts is a tree.
 
-![](images/13725E80-58A3-4B9F-9CD2-E2004D0DD84D.png)
+![:md](images/13725E80-58A3-4B9F-9CD2-E2004D0DD84D.png)
 
 ![](images/D9E40031-039F-4DDB-A779-8D58818D7AB3.png)
 
