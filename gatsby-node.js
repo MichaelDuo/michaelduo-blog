@@ -84,10 +84,14 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 
 	for (let i = 0; i < nonBlogs.length; i++) {
 		const markdown = nonBlogs[i];
+		const relativePath = _.get(markdown, 'parent.relativeDirectory');
 		createPage({
 			path: markdown.frontmatter.path,
 			component: blogPostTemplate,
-			context: {},
+			context: {
+				relativePath,
+				resourcePathReg: `/^${relativePath}.*.(png|jpg|jpeg)/`,
+			},
 		});
 	}
 
