@@ -78,8 +78,6 @@ Once applied, all subsequent operations with this UUID are ignored.
 
 ## Objects
 
-test
-
 ![](images/D576E7EC-1B3B-4F4C-BD18-1FA2FE4C8C08.png)
 
 Need to both specify the object UUID, and the field UUID.
