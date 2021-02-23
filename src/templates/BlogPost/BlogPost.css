@@ -127,7 +127,7 @@
 /* List style */
 .markdown-body ul,
 .markdown-body ol {
-	padding-left: 1.75em;
+	padding-left: 2em;
 }
 
 .markdown-body ul ol li {
@@ -140,7 +140,7 @@
 		content: '*';
 		position: absolute;
 		top: 0;
-		left: -1.75em;
+		left: -2em;
 	}
 }
 

@@ -16,7 +16,7 @@ ol li > p {
 
 ul,
 ol {
-	padding-left: 1.75em;
+	padding-left: 2em;
 }
 
 ul ol li {
@@ -29,6 +29,6 @@ ul > li {
 		content: '*';
 		position: absolute;
 		top: 0;
-		left: -1.75em;
+		left: -2em;
 	}
 }
