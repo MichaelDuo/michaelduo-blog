@@ -2,6 +2,7 @@ import {graphql} from 'gatsby';
 import React from 'react';
 import Header from '../../components/Header';
 import Link from '../../components/Link';
+import Image from '../../components/Image';
 import _ from 'lodash';
 import {LightAsync as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {
@@ -19,13 +20,25 @@ const loadBlogComponents = (require as any).context(
 
 interface Props {
 	data: any;
-	pathContext: any;
+	pathContext: {
+		tags: string[];
+		prev: any;
+		next: any;
+		relativePath: string;
+		resourcePathReg: string;
+	};
 }
 
 const Blog = (props: React.PropsWithChildren<Props>): JSX.Element => {
-	const {markdownRemark: post} = props.data;
+	const {markdownRemark: post, allFile} = props.data;
+	const {relativePath} = props.pathContext;
 	const titleAst = _.get(post.htmlAst, 'children.0');
 	const htmlAst = {...post.htmlAst};
+	const resources = allFile.edges.reduce((acc, file) => {
+		const key = file.node.relativePath.replace(`${relativePath}/`, '');
+		acc[key] = file.node;
+		return acc;
+	}, {});
 
 	if (
 		post.frontmatter.date &&
@@ -49,14 +62,14 @@ const Blog = (props: React.PropsWithChildren<Props>): JSX.Element => {
 	return (
 		<BlogLayout pathContext={props.pathContext}>
 			<div className="markdown-body">
-				<MDHtml ast={htmlAst} />
+				<MDHtml ast={htmlAst} resources={resources} />
 			</div>
 		</BlogLayout>
 	);
 };
 
 export const query = graphql`
-	query BlogPostByPath($path: String!) {
+	query BlogPostByPath($path: String!, $resourcePathReg: String!) {
 		markdownRemark(frontmatter: {path: {eq: $path}}) {
 			html
 			frontmatter {
@@ -65,6 +78,19 @@ export const query = graphql`
 				title
 			}
 			htmlAst
+		}
+		allFile(filter: {relativePath: {regex: $resourcePathReg}}) {
+			edges {
+				node {
+					publicURL
+					relativePath
+					childImageSharp {
+						fluid {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
+			}
 		}
 	}
 `;
@@ -77,15 +103,26 @@ interface HtmlAst {
 	children: HtmlAst[];
 }
 
-const MDHtml = (props: React.PropsWithChildren<{ast: HtmlAst}>) => {
-	const {ast} = props;
-	// console.log('-----', ast);
+interface Resources {
+	[key: string]: {
+		childImageSharp: {
+			fluid: any;
+		};
+		publicURL: string;
+		relativePath: string;
+	};
+}
+
+const MDHtml = (
+	props: React.PropsWithChildren<{ast: HtmlAst; resources: Resources}>
+) => {
+	const {ast, resources} = props;
 	const componentReg = /^{{\s*"component":\s*"(.*)"\s*}}/;
 
 	let children = null;
 	if (ast.children && ast.children.length) {
 		children = ast.children.map((child, idx) => {
-			return <MDHtml key={idx} ast={child} />;
+			return <MDHtml key={idx} ast={child} resources={resources} />;
 		});
 	}
 
@@ -105,6 +142,15 @@ const MDHtml = (props: React.PropsWithChildren<{ast: HtmlAst}>) => {
 		return <Component />;
 	} else if (ast.tagName === 'a') {
 		return <Link to={_.trim(ast.properties.href, '~')}>{children}</Link>;
+	} else if (ast.tagName === 'img') {
+		return (
+			<Image
+				fluid={
+					resources[_.get(ast, 'properties.src', '')].childImageSharp
+						.fluid
+				}
+			/>
+		);
 	} else if (
 		ast.tagName === 'pre' &&
 		_.get(ast, 'children.0.tagName') === 'code'

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './style.module.css';
+import styles from './styles.module.css';
 
 interface Props {
 	type: 'h1' | 'h2' | 'h3';

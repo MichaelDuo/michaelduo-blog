@@ -3,6 +3,8 @@ module.exports = {
 		title: 'gatsby-boilerplate',
 	},
 	plugins: [
+		`gatsby-transformer-sharp`,
+		`gatsby-plugin-sharp`,
 		`gatsby-plugin-postcss`,
 		`gatsby-plugin-eslint`,
 		{
@@ -15,7 +17,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-transformer-remark',
 			options: {
-				plugins: [], // just in case those previously mentioned remark plugins sound cool :)
+				plugins: ['gatsby-remark-unwrap-images'],
 			},
 		},
 	],

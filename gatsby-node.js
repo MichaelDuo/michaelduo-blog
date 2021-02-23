@@ -23,6 +23,11 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 							title
 							score
 						}
+						parent {
+							... on File {
+								relativeDirectory
+							}
+						}
 					}
 				}
 			}
@@ -45,6 +50,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 
 	for (let i = 0; i < blogs.length; i++) {
 		const blog = blogs[i];
+		const relativePath = _.get(blog, 'parent.relativeDirectory');
 		createPage({
 			path: blog.frontmatter.path,
 			component:
@@ -65,6 +71,8 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 						? blogs[i + 1]
 						: null,
 				tags: getTags(blog.frontmatter.tags),
+				relativePath,
+				resourcePathReg: `/^${relativePath}.*.(png|jpg|jpeg)/`,
 			},
 		});
 	}
