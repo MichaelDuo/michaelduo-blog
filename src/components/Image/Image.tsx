@@ -8,7 +8,7 @@ interface Props {
 
 const widthMap = {
 	':sm': 'w-1/2 md:w-1/3',
-	':md': 'w-2/3 md:w-1/2',
+	':md': 'w-full sm:w-2/3 md:w-1/2',
 	':lg': 'w-full md:w-2/3',
 	':xl': 'w-full',
 };
